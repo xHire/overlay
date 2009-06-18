@@ -14,7 +14,7 @@ SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="x86"
 IUSE="volume"
 LINGUAS="de en"
 
@@ -33,7 +33,8 @@ RDEPEND=">=x11-libs/gtk+-2.4.0
 		 dev-perl/X11-FreeDesktop-DesktopEntry
 		 volume? (
 		 	dev-perl/Audio-Mixer
-		 )"
+		 )
+		 x11-themes/hicolor-icon-theme"
 DEPEND="${RDEPEND}"
 
 src_compile() {
