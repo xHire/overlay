@@ -73,7 +73,8 @@ if [ -z "${SERVER_URI}" ]; then
 fi
 
 # Define correct SRC_URIs
-SRC_URI="${SERVER_URI}"
+SRC_URI="${SERVER_URI}
+		 http://www.mysql-mirror.qil.cz/mysql-${PV//_/-}.tar.gz"
 
 mysql_version_is_at_least "5.1.12" \
 && [[ -n "${PBXT_VERSION}" ]] \
