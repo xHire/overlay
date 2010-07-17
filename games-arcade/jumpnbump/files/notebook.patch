@@ -1,0 +1,35 @@
+diff -Naur jumpnbump-1.50.orig/sdl/interrpt.c jumpnbump-1.50/sdl/interrpt.c
+--- jumpnbump-1.50.orig/sdl/interrpt.c	2004-06-16 21:03:39.000000000 +0200
++++ jumpnbump-1.50/sdl/interrpt.c	2010-07-17 13:10:13.877882570 +0200
+@@ -368,6 +368,7 @@
+ 					fs_toggle();
+ 				}
+ 				break;
++			case SDLK_F1:
+ 			case SDLK_1:
+ 				if (e.type == SDL_KEYUP)
+ 					ai[0] = !ai[0];
+@@ -377,6 +378,7 @@
+ 				addkey((KEY_PL1_RIGHT & 0x7f) | 0x8000);
+ 				addkey((KEY_PL1_JUMP & 0x7f) | 0x8000);
+ 				break;
++			case SDLK_F2:
+ 			case SDLK_2:
+ 				if (e.type == SDL_KEYUP)
+ 					ai[1] = !ai[1];
+@@ -386,6 +388,7 @@
+ 				addkey((KEY_PL2_RIGHT & 0x7f) | 0x8000);
+ 				addkey((KEY_PL2_JUMP & 0x7f) | 0x8000);
+ 				break;
++			case SDLK_F3:
+ 			case SDLK_3:
+ 				if (e.type == SDL_KEYUP)
+ 					ai[2] = !ai[2];
+@@ -395,6 +398,7 @@
+ 				addkey((KEY_PL3_RIGHT & 0x7f) | 0x8000);
+ 				addkey((KEY_PL3_JUMP & 0x7f) | 0x8000);
+ 				break;
++			case SDLK_F4:
+ 			case SDLK_4:
+ 				if (e.type == SDL_KEYUP)
+ 					ai[3] = !ai[3];
