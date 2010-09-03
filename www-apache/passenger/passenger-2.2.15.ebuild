@@ -2,7 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/www-apache/passenger/passenger-2.2.15.ebuild,v 1.1 2010/06/30 18:32:41 graaff Exp $
 
-inherit apache-module flag-o-matic ruby
+EAPI="3"
+
+inherit apache-module flag-o-matic ruby-ng
 
 DESCRIPTION="Passenger (a.k.a. mod_rails) makes deployment of Ruby on Rails applications a breeze"
 HOMEPAGE="http://modrails.com/"
