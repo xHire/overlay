@@ -4,8 +4,6 @@
 
 EAPI=3
 
-inherit perl-helper
-
 DESCRIPTION="Collection of tools for generating and manipulating MobiPocket files"
 HOMEPAGE="https://dev.mobileread.com/trac/mobiperl"
 SRC_URI="https://dev.mobileread.com/dist/tompe/mobiperl/${P}.tar"
@@ -52,9 +50,9 @@ src_install() {
 	}
 	newdoc README CHANGELOG || die "newdoc"
 
-	perl_set_version
-	insinto ${VENDOR_LIB}
-	dodir ${VENDOR_LIB}/MobiPerl
-	insinto ${VENDOR_LIB}/MobiPerl
+	eval "$(perl -V:installvendorlib)"
+	insinto ${installvendorlib}
+	dodir ${installvendorlib}/MobiPerl
+	insinto ${installvendorlib}/MobiPerl
 	doins MobiPerl/* || die "doins"
 }
