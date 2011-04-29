@@ -962,6 +962,10 @@ mysql_src_prepare() {
 		rebuilddirlist=". innobase"
 	fi
 
+	# HACK, because on some machines it helps to successfully finish compilation
+	einfo "ATTENTION! Removing two (maybe important?) files"
+	rm -vf "${S}"/sql/sql_yacc.h "${S}"/sql/sql_yacc.cc
+
 	for d in ${rebuilddirlist} ; do
 		einfo "Reconfiguring dir '${d}'"
 		pushd "${d}" &>/dev/null
