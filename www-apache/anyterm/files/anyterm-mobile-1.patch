@@ -1,0 +1,104 @@
+diff -Naur anyterm-1.1.29.orig/browser/anyterm.css anyterm-1.1.29/browser/anyterm.css
+--- anyterm-1.1.29.orig/browser/anyterm.css	2008-06-12 23:58:17.000000000 +0200
++++ anyterm-1.1.29/browser/anyterm.css	2014-07-03 13:30:21.000000000 +0200
+@@ -130,3 +130,15 @@
+   overflow-x: visible;
+ }
+ 
++/* MSP-> */
++textarea {
++  position: absolute;
++  text-align: center;
++  color: yellow;
++  border: 2px;
++  font-family: monospace;
++  font-size: 12px;
++  background: rgb(0, 0, 0) transparent;   /* Fallback for web browsers that doesn't support RGBa */
++  background: rgba(200, 200, 200, 0.1);         /* RGBa with 0.1 opacity */
++}
++/* <-MSP */
+diff -Naur anyterm-1.1.29.orig/browser/anyterm.js anyterm-1.1.29/browser/anyterm.js
+--- anyterm-1.1.29.orig/browser/anyterm.js	2008-10-26 00:47:24.000000000 +0200
++++ anyterm-1.1.29/browser/anyterm.js	2014-07-03 13:30:33.000000000 +0200
+@@ -20,9 +20,14 @@
+ var undefined;
+ 
+ var url_prefix = "";
++var area_text = "TAP HERE";
+ 
+ var frame;
+ var term;
++//MSP->
++var text;
++var is_mobile = false;
++//<-MSP
+ var open=false;
+ var session;
+ 
+@@ -206,6 +211,10 @@
+     term.style.height = termheight+"px";
+     term.scrollTop = term.scrollHeight;
+   }
++
++  //MSP->
++  resize();
++  //<-MSP
+ }
+ 
+ 
+@@ -458,6 +467,20 @@
+   return false;
+ }
+ 
++//MSP->
++// Dynamic resize of the textarea
++// TODO: Handle gesture events and moving, scaling, ...
++
++function resize(ev) {
++  if(!is_mobile) return;
++  text.style.top=term.offsetTop;
++  text.style.left=term.offsetLeft;
++  text.style.width=term.offsetWidth/2;
++  text.style.height=term.offsetHeight;
++  text.style.paddingTop=term.offsetHeight/2;
++  text.value=area_text;
++}
++//<-MSP
+ 
+ // Open, close and initialisation:
+ 
+@@ -731,6 +754,15 @@
+   term=document.createElement("PRE");
+   frame.appendChild(term);
+   term.className="term a p";
++  //MSP->
++  is_mobile=(navigator.userAgent.toLowerCase().indexOf('mobile') > -1) && (navigator.userAgent.toLowerCase().indexOf('firefox') > -1);
++  if(is_mobile) {
++    text=document.createElement("TEXTAREA");
++    text.defaultValue=area_text;
++    text.autofocus="true";
++    frame.appendChild(text);
++  }
++  //<-MSP
+   var termbody=document.createTextNode("");
+   term.appendChild(termbody);
+   visible_height_frac=Number(rows)/(Number(rows)+Number(scrollback));
+@@ -740,12 +772,18 @@
+   document.onhelp = function() { return false; };
+   document.onkeypress=keypress;
+   document.onkeydown=keydown;
++  //MSP->
++  window.onresize=resize;
++  //<-MSP
+   open_term(rows,cols,p,charset,scrollback);
+   if (open) {
+     window.onbeforeunload=warn_unload;
+     get();
+     maybe_send();
+   }
++  //MSP->
++  resize();
++  //<-MSP
+ }
+ 
+ 
