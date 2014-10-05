@@ -1,10 +1,21 @@
 # ChangeLog for www-apache/anyterm
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
   05 Oct 2014; xHire <xhire@mujmalysvet.cz>
-  +files/anyterm-mobile-1.patch anyterm-1.1.29.ebuild:
+  +files/anyterm-mobile-1.patch, anyterm-1.1.29.ebuild:
   Patch for supporting mobile devices
+
+  10 Aug 2014; Sergei Trofimovich <slyfox@gentoo.org> anyterm-1.1.29.ebuild:
+  QA: drop trailing '.' from DESCRIPTION
+
+  27 Nov 2012; Pacho Ramos <pacho@gentoo.org> metadata.xml:
+  Drop apache herd as discussed in http://www.gossamer-
+  threads.com/lists/gentoo/dev/262834
+
+  07 Jul 2012; Mike Gilbert <floppym@gentoo.org>
+  +files/anyterm-1.1.29-boost-1.50.patch, anyterm-1.1.29.ebuild:
+  Fix build failure with Boost 1.50. Patch by Arfrever.
 
   12 Dec 2009; Arfrever Frehtes Taifersar Arahesis <arfrever@gentoo.org>
   anyterm-1.1.29.ebuild:
@@ -126,4 +137,3 @@
   +files/anyterm-1.1.8-libpbe-no-pg_config.patch, +metadata.xml,
   +anyterm-1.1.8.ebuild:
   Initial version. Bug # 98647.
-

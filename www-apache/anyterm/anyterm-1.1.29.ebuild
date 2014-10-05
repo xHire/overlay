@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,7 +6,7 @@ EAPI="2"
 
 inherit eutils flag-o-matic
 
-DESCRIPTION="A terminal anywhere."
+DESCRIPTION="A terminal anywhere"
 HOMEPAGE="http://anyterm.org/"
 SRC_URI="http://anyterm.org/download/${P}.tbz2"
 
@@ -22,11 +22,12 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-1.1.28-respect-LDFLAGS.patch"
 	epatch "${FILESDIR}/${P}-gcc-4.4.patch"
+	epatch "${FILESDIR}/${P}-boost-1.50.patch"
 	epatch "${FILESDIR}/${PN}-mobile-1.patch"
 }
 
 src_compile() {
-	# this package uses `ld -r -b binary` and thus resulting executalbe contains
+	# this package uses `ld -r -b binary` and thus resulting executable contains
 	# executable stack
 	append-ldflags -Wl,-z,noexecstack
 	emake CC="$(tc-getCC)" CXX="$(tc-getCXX)" || die
