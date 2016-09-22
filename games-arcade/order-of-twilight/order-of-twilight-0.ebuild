@@ -11,7 +11,7 @@ SRC_URI="http://stabyourself.net/dl.php?file=orderoftwilight/orderoftwilight-sou
 
 LICENSE="WTFPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 IUSE=""
 
 DEPEND=""
