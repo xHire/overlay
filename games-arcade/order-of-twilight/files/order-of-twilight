@@ -1,0 +1,2 @@
+#!/bin/sh
+exec love @@GAMEDIR@@/Order_of_Twilight.love
