@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# get LTC/BTC rate
+wget https://btc-e.com/api/2/ltc_btc/ticker -T 20 -o /tmp/btcrate.err -O - | ruby -r json -e "print JSON.parse(\$stdin.readline.strip)['ticker']['last']" > /tmp/btcrate
+
+echo -n " Ƀ | " >> /tmp/btcrate
+
+# get BTC/USD rate
+wget https://btc-e.com/api/2/btc_usd/ticker -T 20 -o /tmp/btcrate.err -O - | ruby -r json -e "print JSON.parse(\$stdin.readline.strip)['ticker']['last']" >> /tmp/btcrate
