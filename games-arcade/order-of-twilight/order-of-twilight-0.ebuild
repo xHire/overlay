@@ -16,7 +16,7 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}
-		 games-engines/love"
+	 games-engines/love"
 
 S=${WORKDIR}
 
