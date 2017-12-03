@@ -1,0 +1,3 @@
+This overlay can be easily used through layman:
+
+# layman -f -o https://raw.githubusercontent.com/xHire/overlay/master/overlay.xml -a xhire
