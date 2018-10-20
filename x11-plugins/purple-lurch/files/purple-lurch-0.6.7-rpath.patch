@@ -1,0 +1,11 @@
+--- a/Makefile
++++ b/Makefile
+@@ -51,7 +51,7 @@
+ CFLAGS += -std=c11 -Wall -g -Wstrict-overflow $(PKGCFG_C) $(HEADERS)
+ PLUGIN_CPPFLAGS=-DPURPLE_PLUGINS
+ CPPFLAGS += -D_XOPEN_SOURCE=700 -D_BSD_SOURCE
+-LDFLAGS += -ldl -lm $(PKGCFG_L) $(LJABBER)
++LDFLAGS += -ldl -lm $(PKGCFG_L) $(LJABBER) -Wl,-rpath,$(PURPLE_PLUGIN_DIR)
+ 
+ 
+ ### directories
