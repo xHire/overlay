@@ -23,7 +23,7 @@ DEPEND="
 	dev-libs/glib:2
 	dev-libs/libgcrypt:0=
 	dev-libs/libxml2
-	dev-libs/mini-xml
+	dev-libs/mxml
 	net-im/pidgin
 "
 RDEPEND="${DEPEND}"
