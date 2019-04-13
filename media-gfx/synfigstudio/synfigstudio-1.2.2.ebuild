@@ -3,6 +3,8 @@
 
 EAPI=6
 
+inherit xdg
+
 DESCRIPTION="Film-Quality Vector Animation (main UI)"
 HOMEPAGE="https://www.synfig.org/"
 SRC_URI="mirror://sourceforge/synfig/${P}.tar.gz"
@@ -18,15 +20,3 @@ DEPEND=">=sys-devel/libtool-1.3.5
 	>=media-gfx/synfig-${PV}"
 
 RDEPEND="${DEPEND}"
-
-pkg_postinst() {
-	gnome2_icon_cache_update
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-}
-
-pkg_postrm() {
-	gnome2_icon_cache_update
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-}
