@@ -1,0 +1,13 @@
+diff -Naur libusb1-1.9.1.orig/setup.py libusb1-1.9.1/setup.py
+--- libusb1-1.9.1.orig/setup.py	2020-12-09 14:47:58.000000000 +0100
++++ libusb1-1.9.1/setup.py	2020-12-26 13:45:00.851894883 +0100
+@@ -170,9 +170,6 @@
+         'Topic :: Software Development :: Libraries',
+         'Topic :: System :: Hardware :: Hardware Drivers',
+     ],
+-    setup_requires=[
+-        'wheel',
+-    ],
+     use_2to3=True,
+     test_suite='usb1.testUSB1',
+ )
